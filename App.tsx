@@ -2,8 +2,8 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import RootNavigation from './src/routes/rootNavigation';
 import { PersistGate } from 'redux-persist/integration/react'
-import store, { persistor } from './src/redux/store/store';
-import  { setI18nConfig } from './src/utils/translations';
+import  { persistor,store } from './src/redux/store/store';
+import  { setI18nConfig } from './src/utils/translations/index';
 import {Provider} from 'react-redux';
 import codePush from "react-native-code-push";
 const App = () => {

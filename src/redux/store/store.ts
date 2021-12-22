@@ -1,21 +1,23 @@
+import { createStore, applyMiddleware } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {rootReducer} from './root.reducer';
+import {rootSaga} from './root.saga';
 import createSagaMiddleware from 'redux-saga';
 import MMKVStorage from "react-native-mmkv-storage";
 import logger from 'redux-logger';
-import { createStore, compose, applyMiddleware } from 'redux';
-import { persistStore, persistReducer,persistCombineReducers } from 'redux-persist';
 
-const sagaMiddleWare = createSagaMiddleware();
-const middleware = [sagaMiddleWare, ...getDefaultMiddleware({
+const storage = new MMKVStorage.Loader().initialize();
+const sagaMiddleware = createSagaMiddleware();
+const middleware = [sagaMiddleware, ...getDefaultMiddleware({
     serializableCheck: false
   })];
-const storage = new MMKVStorage.Loader().initialize();
-
-const config = {
+  
+const persistConfig = {
     key: 'root',
     storage: storage,
-    // blacklist: [],
+     whitelist: ['theme'] , 
+     blacklist: [],
     debug: true,
     devTools: process.env.NODE_ENV !== 'production'
 };
@@ -23,12 +25,10 @@ const config = {
 if (__DEV__) {
     middleware.push(logger);
 }
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
-const reducers = persistReducer<any, any>(config, rootReducer);
-const enhancers = [applyMiddleware(...middleware)];
-const initialState = undefined;
-const persistConfig = { enhancers };
-const store = createStore(reducers, initialState, compose(...enhancers));
+ const persistor = persistStore(store)
 
-export const persistor = persistStore(store)
-export default store
+export { store ,persistor};
