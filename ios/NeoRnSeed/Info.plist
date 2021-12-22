@@ -51,6 +51,8 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CodePushDeploymentKey</key>
+	<string>9ysy-kQ6QRy93wvOcXd_YNqm2tPUoXk3Ysqns</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>LibreBaskerville-Bold.ttf</string>

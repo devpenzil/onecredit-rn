@@ -7,7 +7,9 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { persistStore, persistReducer,persistCombineReducers } from 'redux-persist';
 
 const sagaMiddleWare = createSagaMiddleware();
-const middleware = [sagaMiddleWare, ...getDefaultMiddleware()];
+const middleware = [sagaMiddleWare, ...getDefaultMiddleware({
+    serializableCheck: false
+  })];
 const storage = new MMKVStorage.Loader().initialize();
 
 const config = {
