@@ -6,7 +6,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {t} from 'react-native-tailwindcss';
 import {useDispatch} from 'react-redux';
 import { Logo } from '../../assets';
-
+import { translate } from '../../utils/translations/index';
 import {authSlice} from '../../redux/slices/auth.slice';
 
 interface Props {}
@@ -17,7 +17,7 @@ const InitialPage = (props: Props) => {
 
   return (
     <View style={[t.selfCenter, t.justifyCenter, t.flex1]}>
-      <Text style={[t.selfCenter,t.textBlack,t.fontMedium,t.text2xl,t.uppercase,{marginTop:-width/4}]}>Neo RN Seed</Text>
+      <Text style={[t.selfCenter,t.textBlack,t.fontMedium,t.text2xl,t.uppercase,{marginTop:-width/4}]}>{translate("Welcome to seed")}</Text>
       <LottieView
         source={require('../../assets/animations/boat.json')}
         style={[, {width: width / 1.6, height: width / 1.6,marginTop:20}]}
@@ -28,7 +28,7 @@ const InitialPage = (props: Props) => {
      
       {/* <Logo/> */}
       <TouchableOpacity style={[t.h10,t.rounded,t.justifyCenter,{width:width/2,backgroundColor:'#0096CE'},t.selfCenter,t.mT10]} onPress={()=>{navigation.navigate('Loginpage')}}>
-          <Text style={[t.selfCenter,t.textWhite,t.fontBold]}>Continue</Text>
+      <Text style={[t.selfCenter,t.textWhite,t.fontBold]}>Continue</Text>
         </TouchableOpacity>
     </View>
   );
