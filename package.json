@@ -9,7 +9,8 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "husky install",
-    "release": "standard-version"
+    "release": "standard-version",
+    "commit": "cz"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
@@ -58,6 +59,8 @@
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.14.0",
     "husky": "^7.0.4",
     "jest": "^26.6.3",
@@ -79,5 +82,10 @@
       "json",
       "node"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
