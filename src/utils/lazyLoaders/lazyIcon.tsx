@@ -1,6 +1,10 @@
 import React, {Suspense} from 'react';
+import {SvgProps} from 'react-native-svg';
 
-function withIconSuspense  (Icon: any, FallBackUi: any)  {
+function withIconSuspense(
+  Icon: React.LazyExoticComponent<React.FC<SvgProps>>,
+  FallBackUi: () => null,
+) {
   return (props: any) => {
     return (
       <Suspense fallback={<FallBackUi />}>
@@ -8,14 +12,10 @@ function withIconSuspense  (Icon: any, FallBackUi: any)  {
       </Suspense>
     );
   };
-};
-
-function FallBackUi () {
-  return null;
-};
-
-
-export  {
-  withIconSuspense,
-  FallBackUi
 }
+
+function FallBackUi() {
+  return null;
+}
+
+export {withIconSuspense, FallBackUi};
