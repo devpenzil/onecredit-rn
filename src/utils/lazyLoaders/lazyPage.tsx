@@ -1,7 +1,10 @@
 import React, {Suspense} from 'react';
 import {View, ActivityIndicator} from 'react-native';
 
-export const withPageSuspense = (Component: any, PageFallBackUi: any) => {
+export const withPageSuspense = (
+  Component: React.LazyExoticComponent<(props: any) => JSX.Element>,
+  PageFallBackUi: () => JSX.Element,
+) => {
   return (props: any) => {
     return (
       <Suspense fallback={<PageFallBackUi />}>
