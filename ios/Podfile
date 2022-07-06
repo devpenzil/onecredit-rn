@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'NeoRnSeed' do
+target 'onecredit' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -23,7 +23,7 @@ target 'NeoRnSeed' do
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
 
-  target 'NeoRnSeedTests' do
+  target 'onecreditTests' do
     inherit! :complete
     # Pods for testing
   end

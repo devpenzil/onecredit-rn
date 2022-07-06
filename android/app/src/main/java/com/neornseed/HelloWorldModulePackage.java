@@ -1,4 +1,4 @@
-package com.neornseed; // replace your-app-name with your app’s name
+package com.onecredit; // replace your-app-name with your app’s name
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;

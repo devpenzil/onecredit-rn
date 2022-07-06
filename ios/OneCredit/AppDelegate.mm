@@ -14,7 +14,7 @@
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"NeoRnSeed", nil);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"onecredit", nil);
 
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];

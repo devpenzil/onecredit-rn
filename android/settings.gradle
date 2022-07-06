@@ -1,4 +1,4 @@
-rootProject.name = 'NeoRnSeed'
+rootProject.name = 'onecredit'
 include ':react-native-localize'
 project(':react-native-localize').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-localize/android')
 include ':react-native-vector-icons'

@@ -1,4 +1,4 @@
-package com.neornseed;
+package com.onecredit;
 
 import com.facebook.react.bridge.JSIModuleSpec;
 import com.facebook.react.bridge.JavaScriptContextHolder;

@@ -1,4 +1,4 @@
-package com.neornseed;
+package com.onecredit;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
