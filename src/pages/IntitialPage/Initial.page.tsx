@@ -1,36 +1,25 @@
-import { useNavigation } from '@react-navigation/native';
-import LottieView from 'lottie-react-native';
+import {View, Text, Image} from 'react-native';
 import React from 'react';
-import {View, Text, useWindowDimensions} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {t} from 'react-native-tailwindcss';
-import {useDispatch} from 'react-redux';
-import { Logo } from '../../assets';
-import { translate } from '../../utils/translations/index';
-import {authSlice} from '../../redux/slices/auth.slice';
-
+import {style} from './initial.style';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import {useOnBoardHook} from '../../hooks/useOnBoardHook';
 interface Props {}
 
-const InitialPage = (props: Props) => {
-  const {width, height} = useWindowDimensions();
-  const navigation=useNavigation()
-
+const InitialPage = () => {
+  const {data, onSwipe, status} = useOnBoardHook();
   return (
-    <View style={[t.selfCenter, t.justifyCenter, t.flex1]}>
-      <Text style={[t.selfCenter,t.textBlack,t.fontMedium,t.text2xl,t.uppercase,{marginTop:-width/4}]}>{translate("Welcome to seed")}</Text>
-      <LottieView
-        source={require('../../assets/animations/boat.json')}
-        style={[, {width: width / 1.6, height: width / 1.6,marginTop:20}]}
-        autoPlay
-        loop
-      />
-
-     
-      {/* <Logo/> */}
-      <TouchableOpacity style={[t.h10,t.rounded,t.justifyCenter,{width:width/2,backgroundColor:'#0096CE'},t.selfCenter,t.mT10]} onPress={()=>{navigation.navigate('Loginpage')}}>
-      <Text style={[t.selfCenter,t.textWhite,t.fontBold]}>Continue</Text>
-        </TouchableOpacity>
-    </View>
+    <GestureRecognizer onSwipe={onSwipe}>
+      <View style={style.container}>
+        <Image source={data[status].image} style={style.image} />
+        <Text style={style.heading}>{data[status].heading}</Text>
+        <Text style={style.description}>{data[status].desc}</Text>
+        <View style={style.dotfamily}>
+          <View style={[style.dot, status === 0 && style.dotactive]} />
+          <View style={[style.dot, status === 1 && style.dotactive]} />
+          <View style={[style.dot, status === 2 && style.dotactive]} />
+        </View>
+      </View>
+    </GestureRecognizer>
   );
 };
 

@@ -9698,6 +9698,11 @@
     "css-select" "^4.2.1"
     "css-tree" "^1.0.0-alpha.39"
 
+"react-native-swipe-gestures@^1.0.5":
+  "integrity" "sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw=="
+  "resolved" "https://registry.npmjs.org/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz"
+  "version" "1.0.5"
+
 "react-native-tailwindcss@^1.1.11":
   "integrity" "sha512-NgqkDowWWfIl3FNLUXgxaJCt0auuKVVJHRdV68zDg/f6zTFjUYtbWhr/mcSZvwO4+JNtASlF3noPdrIZSW/smA=="
   "resolved" "https://registry.npmjs.org/react-native-tailwindcss/-/react-native-tailwindcss-1.1.11.tgz"
